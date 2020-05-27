@@ -24,6 +24,10 @@ public class OrderItem {
 
     }
 
+    /**
+     * Calculates Quantity multiplied Product Price.
+     * @return result of calculation
+     */
     public double calculateOrderItems(){
 
         double result = 0;

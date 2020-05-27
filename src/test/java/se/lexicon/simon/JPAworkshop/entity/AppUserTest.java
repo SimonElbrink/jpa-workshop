@@ -9,7 +9,7 @@ class AppUserTest {
 
     // Arrange
     AppUser theObject = null;
-    int id = 10;
+    Integer id = 10;
     String firstName = "Simon";
     String lastName = "Elbrink";
     String email = "simon@gmail.com";
@@ -22,10 +22,10 @@ class AppUserTest {
     @Test
     void testSuccessfullyCreated(){
 
-        assertEquals(theObject.getAppUserId(), 10);
-        assertEquals(theObject.getFirstName(), "Simon");
-        assertEquals(theObject.getLastName(), "Elbrink");
-        assertEquals(theObject.getEmail(), "simon@gmail.com");
+        assertEquals(10, theObject.getAppUserId());
+        assertEquals("Simon", theObject.getFirstName());
+        assertEquals("Elbrink", theObject.getLastName());
+        assertEquals("simon@gmail.com", theObject.getEmail());
 
     }
 
@@ -34,26 +34,23 @@ class AppUserTest {
         AppUser isEqual = new AppUser(id,firstName,lastName,email);
 
         assertTrue(theObject.equals(isEqual));
-
     }
 
     @Test
     void testHashCode() {
         AppUser isEqual = new AppUser(id,firstName,lastName,email);
 
-        assertEquals(theObject.hashCode(), isEqual.hashCode());
-
+        assertEquals(isEqual.hashCode(), theObject.hashCode());
     }
 
     @Test
     void testToString() {
-
         String toString = theObject.toString();
 
-        assertTrue(toString.contains("10"));
-        assertTrue(toString.contains("Simon"));
-        assertTrue(toString.contains("Elbrink"));
-        assertTrue(toString.contains("simon@gmail.com"));
+        assertTrue(toString.contains(id.toString()));
+        assertTrue(toString.contains((firstName)));
+        assertTrue(toString.contains(lastName));
+        assertTrue(toString.contains(email));
 
 
     }

@@ -1,15 +1,25 @@
 package se.lexicon.simon.JPAworkshop.entity;
 
+import javax.persistence.*;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
-
+@Entity
 public class ProductOrder {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int ProductOrderId;
+
     private LocalDateTime orderDateTime;
+
+    @OneToMany(cascade = {CascadeType.DETACH, CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH},
+            orphanRemoval = true, mappedBy = "productOrder", fetch = FetchType.LAZY)
     private List<OrderItem> orderItems;
+
+    @ManyToOne (cascade = {CascadeType.DETACH, CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH},
+    fetch = FetchType.EAGER)
     private AppUser customer;
 
     public ProductOrder() {

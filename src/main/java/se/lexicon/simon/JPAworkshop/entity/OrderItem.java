@@ -73,14 +73,12 @@ public class OrderItem {
         if (o == null || getClass() != o.getClass()) return false;
         OrderItem orderItem = (OrderItem) o;
         return orderItemId == orderItem.orderItemId &&
-                quantity == orderItem.quantity &&
-                Objects.equals(product, orderItem.product) &&
-                Objects.equals(productOrder, orderItem.productOrder);
+                quantity == orderItem.quantity;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(orderItemId, quantity, product, productOrder);
+        return Objects.hash(orderItemId, quantity);
     }
 
     @Override
@@ -89,7 +87,6 @@ public class OrderItem {
                 "orderItemId=" + orderItemId +
                 ", quantity=" + quantity +
                 ", product=" + product +
-                ", productOrder=" + productOrder +
                 '}';
     }
 }

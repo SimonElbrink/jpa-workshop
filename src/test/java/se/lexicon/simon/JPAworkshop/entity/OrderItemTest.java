@@ -61,7 +61,6 @@ class OrderItemTest {
         assertTrue(toString.contains(id.toString()));
         assertTrue(toString.contains(quantity.toString()));
         assertTrue(toString.contains((product.toString())));
-        assertTrue(toString.contains(productOrder.toString()));
     }
 
     @Test

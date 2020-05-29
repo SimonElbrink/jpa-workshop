@@ -1,11 +1,11 @@
 package se.lexicon.simon.JPAworkshop.entity;
 
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -65,11 +65,16 @@ class ProductOrderTest {
     }
 
     @Test
+    @DisplayName("Successfully removed OrderItem in a bidirectional way.")
     void testRemoveOrderItem(){
         OrderItem orderItem1 = new OrderItem(30, 30, new Product(2,"Pen", 2.0), testObject);
-        List<OrderItem> orderItems = Arrays.asList(orderItem1);
 
-        testObject.addOrderItem(orderItem1);
+        List<OrderItem> orderItems = testObject.getOrderItems();
+        orderItems.add(orderItem1);
+
+        testObject.setOrderItems(orderItems);
+        orderItem1.setProductOrder(testObject);
+
 
         testObject.removeOrderItem(orderItem1);
 

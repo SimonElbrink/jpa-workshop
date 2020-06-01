@@ -12,6 +12,7 @@ public class AppUser {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int appUserId;
+
     private String firstName;
     private String lastName;
     private String email;
